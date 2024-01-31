@@ -8,6 +8,7 @@ import random
 artistic_turtle = turtle.Turtle()
 wn = turtle.Screen()
 wn.colormode(255)
+artistic_turtle.shape("circle")
 
 def random_color():
     r = random.randint(0, 255)
@@ -17,15 +18,20 @@ def random_color():
     return color
 
 
-def draw_shape(num_sides):
-    for b in range(num_sides):
-        angle = 360 / num_sides
-        artistic_turtle.forward(20)
-        artistic_turtle.right(angle)
+def hirst_painting():
+    for a in range(0, 501, 50):
+        artistic_turtle.penup()
+        artistic_turtle.goto(-250, -250 + a)
+        artistic_turtle.pendown()
+        for b in range(10):
+            artistic_turtle.color(random_color())
+            artistic_turtle.stamp()
+            artistic_turtle.penup()
+            artistic_turtle.forward(50)
+            artistic_turtle.pendown()
 
 
-for shapes in range(3, 80):
-    artistic_turtle.color(random_color())
-    draw_shape(shapes)
+
+hirst_painting()
 
 wn.exitonclick()
